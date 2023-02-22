@@ -1,0 +1,39 @@
+---
+uid: install-without-nuget
+title: "Installing PostSharp without NuGet"
+product: "postsharp"
+categories: "PostSharp;AOP;Metaprogramming"
+---
+# Installing PostSharp without NuGet
+
+The most common way to add PostSharp to your project is by installing PostSharp NuGet packages. The main benefit of using NuGet Package Manager is that it provides a standard way to install and manage all dependencies for your .NET projects.
+
+Previous versions of NuGet had several issues that made it an impractical solution for some teams. For this reason, we allow to use PostSharp without NuGet, by downloading and extracting a standard zip file. However, the installation procedure is significantly more cumbersome without NuGet than with NuGet.
+
+
+### To install PostSharp into a project without NuGet:
+
+1. Download the zip distribution from [https://www.postsharp.net/downloads](https://www.postsharp.net/downloads) (a file named PostSharp-x.x.x.zip). 
+
+
+2. Extract the zip file into some local directory.
+
+
+3. Using Visual Studio, add references to the relevant PostSharp assemblies. They are located under the *lib* directory. 
+
+
+4. Open the project file with a text editor and add the following line just after the last `Import` element. 
+
+    ```xml
+    <Import Project="..\..\..\postsharp\Tools\PostSharp.targets" />
+    ```
+
+
+## See Also
+
+**Other Resources**
+
+<xref:deployment>
+<br><xref:install-compiler>
+<br><xref:uninstalling>
+<br>

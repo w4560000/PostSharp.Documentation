@@ -1,0 +1,8 @@
+<redirect>
+    <!-- MAML API -->
+    <!-- All the MAML links from sitemap have been tested. -->
+    <rule from="^(?!.*_ctor$)(?!.*_ctor_)(?!.*[^_]_\d{1,2}$)(?!.*[^_]_\d{1,2}_)(?:(?:properties|methods|fields|operators|events)_)?(?:r|n|t|p|m|f|e|overload)_(.+?)(?:__\d{1,2})?(?:_[a-f0-9]{8})?$" to="api/$1" />
+    <rule from="^(?!.*_ctor$)(?!.*_ctor_)(?:(?:properties|methods|fields|operators|events)_)?(?:r|n|t|p|m|f|e|overload)_(.+?)(?:_(\d{1,2}))(_(?:.+?))?(?:__\d{1,2})?(?:_[a-f0-9]{8})?$" to="api/$1-$2$3" />
+    <rule from="^(?:m|overload)_(.+?)(?:_(ctor))(?:__\d{1,2})?(?:_[a-f0-9]{8})?$" to="api/$1_-$2" />
+    <rule from="^(?:m|overload)_(.+?)(?:_(\d{1,2}))(?:_(ctor))(?:__\d{1,2})?(?:_[a-f0-9]{8})?$" to="api/$1-$2_-$3" />
+</redirect>

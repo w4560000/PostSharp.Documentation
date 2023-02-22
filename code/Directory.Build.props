@@ -1,0 +1,8 @@
+<Project>
+    <Import Project="..\eng\Versions.props" />
+    <PropertyGroup>
+
+        <Nullable>enable</Nullable>
+
+    </PropertyGroup>
+</Project>

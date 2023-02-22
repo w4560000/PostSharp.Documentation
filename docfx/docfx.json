@@ -1,0 +1,89 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": [
+            "PostSharp.dll",
+            "PostSharp.Patterns.Aggregation.dll",
+            "PostSharp.Patterns.Caching.dll",
+            "PostSharp.Patterns.Caching.Backends.Azure.dll",
+            "PostSharp.Patterns.Caching.Backends.IMemoryCache.dll",
+            "PostSharp.Patterns.Caching.Backends.Redis.dll",
+            "PostSharp.Patterns.Common.dll",
+            "PostSharp.Patterns.Diagnostics.dll",
+            "PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.dll",
+            "PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.dll",
+            "PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.dll",
+            "PostSharp.Patterns.Diagnostics.Adapters.HttpClient.dll",
+            "PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.dll",
+            "PostSharp.Patterns.Diagnostics.Backends.CommonLogging.dll",
+            "PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll",
+            "PostSharp.Patterns.Diagnostics.Backends.Microsoft.dll",
+            "PostSharp.Patterns.Diagnostics.Backends.NLog.dll",
+            "PostSharp.Patterns.Diagnostics.Backends.Serilog.dll",
+            "PostSharp.Patterns.Diagnostics.Backends.Tracing.dll",
+            "PostSharp.Patterns.Diagnostics.Configuration.dll",
+            "PostSharp.Patterns.Model.dll",
+            "PostSharp.Patterns.Threading.dll",
+            "PostSharp.Patterns.Xaml.dll",
+            "System.ComponentModel.Composition.dll",
+            "System.dll",
+            "System.Collections.dll",
+            "System.Collections.Generic.dll",
+            "System.Diagnostics.dll"
+          ],
+          "src": "../code/PostSharp.Documentation.Consolidated/bin/Debug/net6.0"
+        }
+      ],
+      "dest": "obj/api",
+      "disableGitFeatures": false,
+      "disableDefaultFilter": false,
+      "filter": "filter.yml"
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "api/**.yml"
+        ],
+        "src": "obj"
+      },
+      {
+        "files": [
+          "**.md",
+          "toc.yml"
+        ],
+        "src": "../conceptual"
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "**.png",
+          "**.PNG",
+          "api.xml",
+          "redirect.xml"
+        ],
+        "src": "../conceptual"
+      }
+    ],
+    "xrefService": [
+      "https://xref.docs.microsoft.com/query?uid={uid}"
+    ],
+    "dest": "_site",
+    "globalMetadataFiles": [],
+    "fileMetadataFiles": [],
+    "template": [
+      "default",
+      "packages/memberpage.2.59.0/content",
+      "custom-templates"
+    ],
+    "postProcessors": [],
+    "markdownEngineName": "dfm",
+    "noLangKeyword": false,
+    "keepFileLink": false,
+    "cleanupCacheHistory": false
+  }
+}

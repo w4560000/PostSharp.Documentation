@@ -1,0 +1,4 @@
+<map>
+    <!-- This file maps API topics under the proper parent. Any node in this file must exist in the TOC. -->
+    <node path="api" default="true"/>
+</map>

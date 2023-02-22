@@ -1,0 +1,28 @@
+
+<Project>
+
+    <!-- Set the default version -->
+    <Import Project="MainVersion.props" />
+    
+    <PropertyGroup>
+        <PostSharpDocumentationVersion>$(MainVersion)$(PackageVersionSuffix)</PostSharpDocumentationVersion>
+        <PostSharpDocumentationAssemblyVersion>$(MainVersion)</PostSharpDocumentationAssemblyVersion>
+    </PropertyGroup>
+
+    <!-- Versions of dependencies -->
+    <PropertyGroup>
+        <PostSharpEngineeringVersion>1.0.114-preview</PostSharpEngineeringVersion>
+        <PostSharpVersion>2023.0.3</PostSharpVersion>
+        <NuGetCommandLineVersion>6.2.2</NuGetCommandLineVersion>
+    </PropertyGroup>
+
+    <!-- Import overrides for the local build -->
+    <Import Project="Versions.g.props" Condition="Exists('Versions.g.props')" />
+
+    <!-- Other properties dependent on the versions set above. -->
+    <PropertyGroup>
+        <AssemblyVersion>$(PostSharpDocumentationAssemblyVersion)</AssemblyVersion>
+        <Version>$(PostSharpDocumentationVersion)</Version>
+    </PropertyGroup>
+
+</Project>

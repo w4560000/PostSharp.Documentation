@@ -1,0 +1,7 @@
+apiRules:
+- exclude:
+    uidRegex: ^PostSharp\..+\.<>.+
+    type: Type
+- exclude:
+    uidRegex: ^PostSharp\..+\.<.+?>.+
+    type: Type
