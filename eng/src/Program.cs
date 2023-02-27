@@ -19,8 +19,7 @@ const string docPackageFileName = "PostSharp.Doc.zip";
 // PostSharp SDK Documentiation is not published at the moment.
 // const string docSdkPackageFileName = "PostSharp.Sdk.Doc.zip";
 
-// TODO: Replace with PostSharpDocumentation dependency.
-var product = new Product( new( "PostSharp.Documentation", VcsProvider.GitHub, "PostSharp", false ) )
+var product = new Product( Dependencies.PostSharpDocumentation )
 {
     Solutions = new Solution[]
     {

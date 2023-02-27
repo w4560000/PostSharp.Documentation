@@ -11,9 +11,9 @@
 
     <!-- Versions of dependencies -->
     <PropertyGroup>
-        <PostSharpEngineeringVersion>1.0.114-preview</PostSharpEngineeringVersion>
+        <PostSharpEngineeringVersion>1.0.132-preview</PostSharpEngineeringVersion>
         <PostSharpVersion>2023.0.3</PostSharpVersion>
-        <NuGetCommandLineVersion>6.2.2</NuGetCommandLineVersion>
+        <NuGetCommandLineVersion>6.4.0</NuGetCommandLineVersion>
     </PropertyGroup>
 
     <!-- Import overrides for the local build -->
