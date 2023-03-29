@@ -13,7 +13,6 @@
             "PostSharp.Patterns.Common.dll",
             "PostSharp.Patterns.Diagnostics.dll",
             "PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.dll",
-            "PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.dll",
             "PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.dll",
             "PostSharp.Patterns.Diagnostics.Adapters.HttpClient.dll",
             "PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.dll",
@@ -31,9 +30,19 @@
             "System.dll",
             "System.Collections.dll",
             "System.Collections.Generic.dll",
-            "System.Diagnostics.dll"
+            "System.Diagnostics.dll",
+            "System.ObjectModel.dll",
+            "System.Runtime.dll",
+            "Microsoft.TeamFoundation.TestManagement.Client.dll"
           ],
-          "src": "../code/PostSharp.Documentation.Consolidated/bin/Debug/net6.0-windows"
+          "src": "../code/PostSharp.Documentation.Consolidated/bin/Debug/net7.0-windows"
+        },
+        {
+          "files": [
+            "PostSharp.Patterns.Caching.Backends.Azure.dll",
+            "PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.dll"
+          ],
+          "src": "../code/PostSharp.Documentation.Consolidated/bin/Debug/net481"
         }
       ],
       "dest": "obj/api",

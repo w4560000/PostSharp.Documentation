@@ -8,7 +8,6 @@ using PostSharp.Patterns.Caching.Backends.Redis;
 using PostSharp.Patterns.Contracts;
 using PostSharp.Patterns.Diagnostics;
 using PostSharp.Patterns.Diagnostics.Adapters.AspNetCore;
-using PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework;
 using PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource;
 using PostSharp.Patterns.Diagnostics.Adapters.HttpClient;
 using PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights;
@@ -21,6 +20,10 @@ using PostSharp.Patterns.Diagnostics.Backends.Trace;
 using PostSharp.Patterns.Model;
 using PostSharp.Patterns.Xaml;
 
+#if NETFRAMEWORK
+using PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework;
+#endif
+
 Console.WriteLine( "Hello, World!" );
 
 // // This is to make sure that all packages are properly referenced.
@@ -29,14 +32,12 @@ _ = new Type[]
     typeof(Aspect), // PostSharp.Redist
     typeof(AggregatableAttribute), // PostSharp.Patterns.Aggregation.Redist
     typeof(CacheAttribute), // PostSharp.Patterns.Caching.Redist
-    typeof(AzureCacheInvalidator2), // PostSharp.Patterns.Caching.Azure
     typeof(MemoryCacheBackend), // PostSharp.Patterns.Caching.IMemoryCache
     typeof(RedisCachingBackend), // PostSharp.Patterns.Caching.Redis
     typeof(RequiredAttribute), // PostSharp.Patterns.Common.Redist
     typeof(LogAttribute), // PostSharp.Patterns.Diagnostics.Redist
     typeof(ApplicationInsightsLoggingBackend), // PostSharp.Patterns.Diagnostics.ApplicationInsights
     typeof(AspNetCoreLogging), // PostSharp.Patterns.Diagnostics.AspNetCore
-    typeof(AspNetFrameworkRequestMetadata), // PostSharp.Patterns.Diagnostics.AspNetFramework
     typeof(CommonLoggingLoggingBackend), // PostSharp.Patterns.Diagnostics.CommonLogging
     typeof(DiagnosticSourceCollectingListener), // PostSharp.Patterns.Diagnostics.DiagnosticSource
     typeof(HttpClientLogging), // PostSharp.Patterns.Diagnostics.HttpClient
@@ -48,4 +49,13 @@ _ = new Type[]
     typeof(TraceLoggingBackend), // PostSharp.Patterns.Diagnostics.Tracing
     typeof(NotifyPropertyChangedAttribute), // PostSharp.Patterns.Model.Redist
     typeof(CommandAttribute), // PostSharp.Patterns.Xaml.Redist
+
+#if NET
+    typeof(AzureCacheInvalidator2), // PostSharp.Patterns.Caching.Azure
+#endif
+
+#if NETFRAMEWORK
+    typeof(AzureCacheInvalidator), // PostSharp.Patterns.Caching.Azure
+    typeof(AspNetFrameworkRequestMetadata), // PostSharp.Patterns.Diagnostics.AspNetFramework
+#endif
 };
