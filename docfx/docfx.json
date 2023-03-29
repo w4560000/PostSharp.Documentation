@@ -33,7 +33,7 @@
             "System.Collections.Generic.dll",
             "System.Diagnostics.dll"
           ],
-          "src": "../code/PostSharp.Documentation.Consolidated/bin/Debug/net6.0"
+          "src": "../code/PostSharp.Documentation.Consolidated/bin/Debug/net6.0-windows"
         }
       ],
       "dest": "obj/api",
