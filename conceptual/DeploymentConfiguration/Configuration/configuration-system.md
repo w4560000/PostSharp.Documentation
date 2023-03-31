@@ -38,7 +38,7 @@ Configuration files are typically useful in the following scenarios:
     </Project>
     ```
 
-    See [buildtime](logging-customizing#editing-a-build-time-configuration) for details. 
+    See [buildtime](xref:logging-customizing#editing-a-build-time-configuration) for details. 
 
 * Adding aspects to your code without affecting your code base, for instance:
     ```xml

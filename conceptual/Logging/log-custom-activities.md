@@ -146,7 +146,7 @@ static class Hasher
 
 When you open an activity with a specific level, say <xref:PostSharp.Patterns.Diagnostics.LogSource.Debug>, and then close the activity successfully, the close message will be emitted with the same level as the open message, i.e. <xref:PostSharp.Patterns.Diagnostics.LogSource.Debug>. 
 
-However, when the activity fails with an exception, the close message level will be <xref:PostSharp.Patterns.Diagnostics.LogSource.Failure>, whose value can be changed only by the <xref:PostSharp.Patterns.Diagnostics.LogSource.WithLevel(PostSharp.Patterns.Diagnostics.LogLevel)> method. See [Changing the default level for exceptions](log-custom-messages#to-configure-the-default-logging-levels-centrally) for information about changing the default levels. 
+However, when the activity fails with an exception, the close message level will be <xref:PostSharp.Patterns.Diagnostics.LogSource.Failure>, whose value can be changed only by the <xref:PostSharp.Patterns.Diagnostics.LogSource.WithLevel(PostSharp.Patterns.Diagnostics.LogLevel)> method. See [Changing the default level for exceptions](xref:log-custom-messages#to-configure-the-default-logging-levels-centrally) for information about changing the default levels. 
 
 
 ## Measuring the execution time of activities
