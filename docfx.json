@@ -42,7 +42,7 @@
             "PostSharp.Patterns.Caching.Backends.Azure.dll",
             "PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.dll"
           ],
-          "src": "code/PostSharp.Documentation.Consolidated/bin/Debug/net481"
+          "src": "code/PostSharp.Documentation.Consolidated/bin/Debug/net48"
         }
       ],
       "dest": "obj/api",
