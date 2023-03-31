@@ -35,20 +35,20 @@
             "System.Runtime.dll",
             "Microsoft.TeamFoundation.TestManagement.Client.dll"
           ],
-          "src": "../code/PostSharp.Documentation.Consolidated/bin/Debug/net7.0-windows"
+          "src": "code/PostSharp.Documentation.Consolidated/bin/Debug/net7.0-windows"
         },
         {
           "files": [
             "PostSharp.Patterns.Caching.Backends.Azure.dll",
             "PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.dll"
           ],
-          "src": "../code/PostSharp.Documentation.Consolidated/bin/Debug/net481"
+          "src": "code/PostSharp.Documentation.Consolidated/bin/Debug/net481"
         }
       ],
       "dest": "obj/api",
       "disableGitFeatures": false,
       "disableDefaultFilter": false,
-      "filter": "filter.yml"
+      "filter": "docfx-api-filter.yml"
     }
   ],
   "build": {
@@ -64,7 +64,7 @@
           "**.md",
           "toc.yml"
         ],
-        "src": "../conceptual"
+        "src": "conceptual"
       }
     ],
     "resource": [
@@ -75,19 +75,19 @@
           "api.xml",
           "redirect.xml"
         ],
-        "src": "../conceptual"
+        "src": "conceptual"
       }
     ],
     "xrefService": [
       "https://xref.docs.microsoft.com/query?uid={uid}"
     ],
-    "dest": "_site",
+    "dest": "docfx/_site",
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
     "template": [
       "default",
-      "packages/memberpage.2.59.0/content",
-      "custom-templates"
+      "docfx/packages/memberpage.2.59.0/content",
+      "templates"
     ],
     "postProcessors": [],
     "markdownEngineName": "dfm",
