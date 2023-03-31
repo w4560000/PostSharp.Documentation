@@ -36,7 +36,7 @@
 		<PackageReference Include="PostSharp.Patterns.Xaml.Redist" Version="$(PostSharpVersion)" />
 	</ItemGroup>
 
-	<ItemGroup Condition="'$(TargetFramework)'=='net481'">
+	<ItemGroup Condition="'$(TargetFramework)'=='net48'">
 		<PackageReference Include="PostSharp.Patterns.Diagnostics.AspNetFramework" Version="$(PostSharpVersion)" />
 	</ItemGroup>
 
