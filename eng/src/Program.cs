@@ -13,6 +13,7 @@ using Spectre.Console.Cli;
 using System.IO;
 using System.Diagnostics;
 using PostSharp.Engineering.BuildTools.Build.Publishers;
+using PostSharp.Engineering.BuildTools.Search;
 
 const string docPackageFileName = "PostSharp.Doc.zip";
 
@@ -41,7 +42,16 @@ var product = new Product( Dependencies.PostSharpDocumentation )
                 {
                     new(docPackageFileName, RegionEndpoint.EUWest1, "doc.postsharp.net", docPackageFileName),
                 } )
-            } ) )
+            } ) ),
+    
+    Extensions = new ProductExtension[]
+    {
+        new UpdateSearchProductExtension(
+            "https://0fpg9nu41dat6boep.a1.typesense.net",
+            "postsharpdoc",
+            "https://doc-production.postsharp.net/sitemap.xml",
+            true )
+    }
 };
 
 product.PrepareCompleted += OnPrepareCompleted;

@@ -16,7 +16,8 @@ project {
    buildType(DebugBuild)
    buildType(PublicBuild)
    buildType(PublicDeployment)
-   buildTypesOrder = arrayListOf(DebugBuild,PublicBuild,PublicDeployment)
+   buildType(PublicUpdateSearch)
+   buildTypesOrder = arrayListOf(DebugBuild,PublicBuild,PublicDeployment,PublicUpdateSearch)
 }
 
 object DebugBuild : BuildType({
@@ -27,7 +28,8 @@ object DebugBuild : BuildType({
 
     vcs {
         root(DslContext.settingsRoot)
-    }
+
+        }
 
     steps {
         // Step to kill all dotnet or VBCSCompiler processes that might be locking files we delete in during cleanup.
@@ -45,7 +47,7 @@ object DebugBuild : BuildType({
                 path = "Build.ps1"
             }
             noProfile = false
-            param("jetbrains_powershell_scriptArguments", "test --configuration Debug --buildNumber %build.number%")
+            param("jetbrains_powershell_scriptArguments", "test --configuration Debug --buildNumber %build.number% --buildType %system.teamcity.buildType.id%")
         }
     }
 
@@ -70,7 +72,8 @@ object PublicBuild : BuildType({
 
     vcs {
         root(DslContext.settingsRoot)
-    }
+
+        }
 
     steps {
         // Step to kill all dotnet or VBCSCompiler processes that might be locking files we delete in during cleanup.
@@ -88,7 +91,7 @@ object PublicBuild : BuildType({
                 path = "Build.ps1"
             }
             noProfile = false
-            param("jetbrains_powershell_scriptArguments", "test --configuration Public --buildNumber %build.number%")
+            param("jetbrains_powershell_scriptArguments", "test --configuration Public --buildNumber %build.number% --buildType %system.teamcity.buildType.id%")
         }
     }
 
@@ -113,7 +116,8 @@ object PublicDeployment : BuildType({
 
     vcs {
         root(DslContext.settingsRoot)
-    }
+
+        }
 
     steps {
         powerShell {
@@ -145,13 +149,66 @@ object PublicDeployment : BuildType({
 
         dependency(PublicBuild) {
             snapshot {
-                onDependencyFailure = FailureAction.FAIL_TO_START
+                     onDependencyFailure = FailureAction.FAIL_TO_START
             }
+
 
             artifacts {
                 cleanDestination = true
                 artifactRules = "+:artifacts/publish/public/**/*=>artifacts/publish/public\n+:artifacts/publish/private/**/*=>artifacts/publish/private\n+:artifacts/testResults/**/*=>artifacts/testResults"
             }
+
+        }
+
+     }
+
+})
+
+object PublicUpdateSearch : BuildType({
+
+    name = "Update Search [Public]"
+
+    type = Type.DEPLOYMENT
+
+    vcs {
+        root(DslContext.settingsRoot)
+
+        }
+
+    steps {
+        powerShell {
+            name = "Update Search [Public]"
+            scriptMode = file {
+                path = "Build.ps1"
+            }
+            noProfile = false
+            param("jetbrains_powershell_scriptArguments", "tools search update https://0fpg9nu41dat6boep.a1.typesense.net postsharpdoc https://doc-production.postsharp.net/sitemap.xml --ignore-tls")
+        }
+    }
+
+    requirements {
+        equals("env.BuildAgentType", "caravela04")
+    }
+
+    features {
+        swabra {
+            lockingProcesses = Swabra.LockingProcessPolicy.KILL
+            verbose = true
+        }
+        sshAgent {
+            // By convention, the SSH key name is always PostSharp.Engineering for all repositories using SSH to connect.
+            teamcitySshKey = "PostSharp.Engineering"
+        }
+    }
+
+    dependencies {
+
+        dependency(PublicDeployment) {
+            snapshot {
+                     onDependencyFailure = FailureAction.FAIL_TO_START
+            }
+
+
         }
 
      }
