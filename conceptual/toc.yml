@@ -279,10 +279,14 @@ items:
             topicUid: logging-verbosity-api
           - name: Defining Your Own Logging Transactions
             topicUid: custom-logging-transactions
+      - name: Hiding sensitive data when logging
+        topicUid: logging-hiding-sensitive-data
       - name: Logging in a Distributed System
         topicUid: distributed-logging
       - name: Handling Logging Exceptions
         topicUid: logging-exception-handling
+      - name: Troubleshooting 
+        topicUid: logging-troubleshooting
   - name: Contracts
     topicUid: contracts
     items:
