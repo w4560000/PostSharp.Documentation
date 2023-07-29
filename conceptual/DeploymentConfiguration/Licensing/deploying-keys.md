@@ -15,7 +15,7 @@ Whether you are using a free or commercial edition, PostSharp requires you to en
 It is possible to install the license key in your source control, so that these settings are automatically applied during the build.
 
 
-### To install the license the in source control:
+### To install the license key in source control:
 
 1. Create a file named *postsharp.config* in the root directory of your source repository, or in any parent directory of the Visual Studio project file (**.csproj* or **.vbproj*). 
 
@@ -37,10 +37,12 @@ See <xref:configuration-system> for details about this configuration file.
 
 ## Registering a license key using the user interface
 
-Registering a license key using the user interface is the preferred procedures for individual developers and small teams.
+Registering a license key using the user interface is the preferred procedure for individual developers and small teams.
+
+It's easier to do it when PostSharp Tools for Visual Studio are installed, but you can also do it without them.
 
 
-### To register a license key using the user interface:
+### To open the licensing UI with PostSharp Tools for Visual Studio:
 
 1. Open Visual Studio.
 
@@ -51,31 +53,38 @@ Registering a license key using the user interface is the preferred procedures f
 3. Open the **License** option page. 
 
 
-4. Click on the **Register a license** link. 
+### To open the licensing UI without PostSharp Tools for Visual Studio:
+
+1. Build a project that contains PostSharp. The build does not need to be successful.
+2. Execute `C:\ProgramData\PostSharp\<<VERSION>>\bin.Release\net472\UserInterface\PostSharp.Settings.UI.exe`. Use the latest available version number.
 
 
-5. Click on **Register a license**. 
+### To install a license key with the licensing UI:
+
+1. Open the licensing UI as described above.
+
+2. Click on the **Register a license** link. 
+
+
+3. Click on **Register a license**. 
 
     ![](LicenseWizard1.PNG)
 
 
-6. Paste the license key and click **Next** . 
+4. Paste the license key and click **Next** . 
 
     ![](LicenseWizard2.PNG)
 
 
-7. Read the license agreement and check the option **I agree**. Click on **Next**. 
+5. Read the license agreement and check the option **I agree**. Click on **Next**. 
 
     ![](LicenseWizard3.PNG)
 
     > [!TIP]
-    > If you are registering the license key on a build server, also check the option **
-                      Register these
-                      settings for all accounts on this machine.
-                    ** 
+    > If you are registering the license key on a build server, also check the option **Register these settings for all accounts on this machine.** 
 
 
-8. Click **Next** on the notice regarding license metering. 
+6. Click **Next** on the notice regarding license metering. 
 
 
 
@@ -88,16 +97,10 @@ In this topic, we assume that the license server has already been installed by y
 
 ### To subscribe to a license server using the user interface:
 
-1. Open Visual Studio.
+1. Open the licensing UI as described above.
 
 
-2. Click on menu **PostSharp**, then **Options**. 
-
-
-3. Open the **License** option page. 
-
-
-4. Click on the **Subscribe to a license server** link. 
+2. Click on the **Subscribe to a license server** link. 
 
     ![](LicenseServer5.png)
 
@@ -107,7 +110,7 @@ In this topic, we assume that the license server has already been installed by y
     ![](LicenseServer6.png)
 
 
-6. Read the license agreement and check the option **I accept**. Click on **Next**. 
+3. Read the license agreement and check the option **I accept**. Click on **Next**. 
 
     ![](LicenseServer7.png)
 
@@ -115,7 +118,7 @@ In this topic, we assume that the license server has already been installed by y
     > If you are registering the license server on a build server, also check the option **Register the license for all accounts on this machine.** 
 
 
-7. You are done.
+4. You are done.
 
     ![](LicenseServer8.png)
 
