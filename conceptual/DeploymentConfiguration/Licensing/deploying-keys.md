@@ -52,11 +52,22 @@ It's easier to do it when PostSharp Tools for Visual Studio are installed, but y
 
 3. Open the **License** option page. 
 
+You should now see the following dialog box:
+
+![](VsLicenseOptions.PNG)
+
 
 ### To open the licensing UI without PostSharp Tools for Visual Studio:
 
 1. Build a project that contains PostSharp. The build does not need to be successful.
-2. Execute `C:\ProgramData\PostSharp\<<VERSION>>\bin.Release\net472\UserInterface\PostSharp.Settings.UI.exe`. Use the latest available version number.
+2. Open the `C:\ProgramData\PostSharp` directory with Windows Explorer.
+3. Find the subdirectory whose name is the highest version number (it generally does not matter if it does not pick exactly the latest build).
+4. From this directory, find `.\bin.Release\net472\UserInterface\PostSharp.Settings.UI.exe` and execute it.
+5. Unfold the _Manage License_ panel.
+
+You should now see the following dialog box:
+
+![](PostSharpSettingsUI.png)
 
 
 ### To install a license key with the licensing UI:
@@ -64,7 +75,6 @@ It's easier to do it when PostSharp Tools for Visual Studio are installed, but y
 1. Open the licensing UI as described above.
 
 2. Click on the **Register a license** link. 
-
 
 3. Click on **Register a license**. 
 
