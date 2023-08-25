@@ -7,43 +7,48 @@ using PostSharp.Engineering.BuildTools.Build.Solutions;
 using PostSharp.Engineering.BuildTools.AWS.S3.Publishers;
 using PostSharp.Engineering.BuildTools.Build;
 using PostSharp.Engineering.BuildTools.Build.Model;
-using PostSharp.Engineering.BuildTools.Dependencies.Model;
 using PostSharp.Engineering.BuildTools.Utilities;
 using Spectre.Console.Cli;
 using System.IO;
 using System.Diagnostics;
 using PostSharp.Engineering.BuildTools.Build.Publishers;
+using PostSharp.Engineering.BuildTools.Dependencies.Definitions;
 using PostSharp.Engineering.BuildTools.Search;
 
 const string docPackageFileName = "PostSharp.Doc.zip";
 
-var product = new Product( Dependencies.PostSharpDocumentation )
+var product = new Product( PostSharpDependencies.PostSharpDocumentation )
 {
     Solutions = new Solution[]
     {
-        new DotNetSolution( Path.Combine( "code", "PostSharp.Documentation.Prerequisites.sln" ) ) { CanFormatCode = true },
+        new DotNetSolution( Path.Combine( "code", "PostSharp.Documentation.Prerequisites.sln" ) )
+        {
+            CanFormatCode = true
+        },
         new DocFxSolution( "docfx.json" ),
     },
     PublicArtifacts = Pattern.Create(
         docPackageFileName
     ),
-    Dependencies = new[] { Dependencies.PostSharpEngineering },
+    Dependencies = new[] { DevelopmentDependencies.PostSharpEngineering },
     AdditionalDirectoriesToClean = new[] { "obj", "docfx\\_site" },
 
     // Disable automatic build triggers.
     Configurations = Product.DefaultConfigurations
         .WithValue( BuildConfiguration.Debug, c => c with { BuildTriggers = default } )
-        .WithValue( BuildConfiguration.Public, new BuildConfigurationInfo(
-            MSBuildName: "Release",
-            PublicPublishers: new Publisher[]
+        .WithValue( BuildConfiguration.Public,
+            c => c with
             {
-                new MergePublisher(),
-                new DocumentationPublisher( new S3PublisherConfiguration[]
+                PublicPublishers = new Publisher[]
                 {
-                    new(docPackageFileName, RegionEndpoint.EUWest1, "doc.postsharp.net", docPackageFileName),
-                } )
-            } ) ),
-    
+                    new MergePublisher(),
+                    new DocumentationPublisher( new S3PublisherConfiguration[]
+                    {
+                        new(docPackageFileName, RegionEndpoint.EUWest1, "doc.postsharp.net",
+                            docPackageFileName),
+                    } )
+                }
+            } ),
     Extensions = new ProductExtension[]
     {
         new UpdateSearchProductExtension(
