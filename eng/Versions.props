@@ -1,4 +1,4 @@
-
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project>
 
     <!-- Set the default version -->
@@ -11,7 +11,7 @@
 
     <!-- Versions of dependencies -->
     <PropertyGroup>
-        <PostSharpEngineeringVersion>2023.2.39</PostSharpEngineeringVersion>
+        <PostSharpEngineeringVersion>2023.2.54</PostSharpEngineeringVersion>
         <PostSharpVersion>2023.0.7</PostSharpVersion>
         <NuGetCommandLineVersion>6.4.0</NuGetCommandLineVersion>
     </PropertyGroup>

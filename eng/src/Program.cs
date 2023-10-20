@@ -51,7 +51,7 @@ var product = new Product( PostSharpDependencies.PostSharpDocumentation )
             } ),
     Extensions = new ProductExtension[]
     {
-        new UpdateSearchProductExtension(
+        new UpdateSearchProductExtension<UpdatePostSharpDocumentationCommand>(
             "https://0fpg9nu41dat6boep.a1.typesense.net",
             "postsharpdoc",
             "https://doc-production.postsharp.net/sitemap.xml",
