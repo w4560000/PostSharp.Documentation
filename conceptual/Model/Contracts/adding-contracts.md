@@ -117,11 +117,12 @@ public interface ICustomerModel
 
 public class CustomerModel : ICustomerModel
 {
+  public string FullName = "Not filled in yet";
+
   public void SetFullName(string firstName, string lastName)
   {
      this.FullName = firstName + " " + lastName;
   }
-
 }
 ```
 
